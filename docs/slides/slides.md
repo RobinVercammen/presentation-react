@@ -87,3 +87,56 @@ class App extends Component {
 ```
 Note: A component implements a render method. This method will be called whenenver a state is changed. This is the extended app component.
 In here we use components provided from the material-ui framework.
+
+
+# Own commponent
+```javascript
+export default class PokemonCard extends Component {
+    render() {
+        return (
+            <Card>
+                <CardHeader
+                    title={this.props.pokemon.name}
+                    avatar={`https://raw.githubusercontent.com/PokeAPI/pokeapi/master/data/v2/sprites/pokemon/${this.props.pokemon.id}.png`}
+                />
+            </Card>
+        );
+    }
+}
+```
+Note: only has props: mostly display only
+
+
+# 'Complex' component
+```javascript
+export default class PokemonSearch extends Component {
+    constructor(props) {
+        super();
+        this.state = { pokemonId: '', name: '' };
+        this.search = this.search.bind(this);
+        this.changePokemonId = this.changePokemonId.bind(this);
+    }
+    search(evt) {
+        evt.preventDefault();
+        console.log(this.state.pokemonId);
+    }
+    changePokemonId(evt) {
+        const pokemonId = evt.target.value;
+        this.setState({ pokemonId });
+    }
+    render() {
+        let pokemon;
+        if (this.state.pokemon) {
+            pokemon = <PokemonCard pokemon={this.state.pokemon} />;
+        }
+        return <div>
+            <form onSubmit={this.search} autoComplete="off">
+                <TextField name="pokemon-id" floatingLabelText="Pokemon #" onChange={this.changePokemonId} />
+                <RaisedButton type="submit" label="Search" />
+            </form>
+            {pokemon}
+        </div>;
+    }
+}
+```
+Note: Contains state , uses other components
