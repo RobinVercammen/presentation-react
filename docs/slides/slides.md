@@ -140,3 +140,45 @@ export default class PokemonSearch extends Component {
 }
 ```
 Note: Contains state , uses other components
+
+
+
+# Getting data
+```javascript
+export const HttpGet = (url) => {
+    return fetch(url).then(r => r.json());
+}
+// use like this
+HttpGet(`http://pokeapi.co/api/v2/pokemon/${this.state.pokemonId}/`).then(
+    pokemon => {
+        this.setState({ pokemon });
+    }
+);
+```
+Note: calling an api using fetch, easy to use
+
+
+
+# Setting the store
+```javascript
+// dispatch
+store.dispatch({ type: 'pokemons', pokemon });
+// subscribe
+store.subscribe(() => {
+    const pokemons = store.getState().pokemons;
+    this.setState({ pokemons });
+});
+// handle
+case 'pokemons':
+state.pokemons.push(action.pokemon);
+return state;
+```
+Note: manage application state
+
+
+
+# Further leads
+- [React-router](https://github.com/ReactTraining/react-router)
+- [Redux](https://egghead.io/courses/getting-started-with-redux)
+- [Immutablejs](https://facebook.github.io/immutable-js/docs/#/)
+- [Material-ui](http://www.material-ui.com/#/)

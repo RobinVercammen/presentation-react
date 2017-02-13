@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
+import { HttpGet } from '../service/fetch';
 import PokemonCard from './pokemon';
+import store from '../store';
 
 export default class PokemonSearch extends Component {
     constructor(props) {
@@ -12,7 +14,12 @@ export default class PokemonSearch extends Component {
     }
     search(evt) {
         evt.preventDefault();
-        console.log(this.state.pokemonId);
+        HttpGet(`http://pokeapi.co/api/v2/pokemon/${this.state.pokemonId}/`).then(
+            pokemon => {
+                this.setState({ pokemon });
+                store.dispatch({ type: 'pokemons', pokemon });
+            }
+        );
     }
     changePokemonId(evt) {
         const pokemonId = evt.target.value;
