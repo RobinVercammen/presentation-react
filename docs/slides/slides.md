@@ -37,6 +37,7 @@ create-react-app pokedex
 cd pokedex
 npm start
 ```
+[Code](https://github.com/RobinVercammen/presentation-react/commit/78d01755411ea3722ef90292611c4260819ede32) <!-- .element target="_blank" style="position: fixed; left: 15px; bottom:15px;" -->
 
 
 # Add packages
@@ -85,8 +86,10 @@ class App extends Component {
   }
 }
 ```
+[Code](https://github.com/RobinVercammen/presentation-react/commit/b3b61ca8b7ec1645b29f6ec0b9b860369d64022f) <!-- .element target="_blank" style="position: fixed; left: 15px; bottom:15px;" -->
 Note: A component implements a render method. This method will be called whenenver a state is changed. This is the extended app component.
 In here we use components provided from the material-ui framework.
+
 
 
 # Own commponent
@@ -139,6 +142,7 @@ export default class PokemonSearch extends Component {
     }
 }
 ```
+[Code](https://github.com/RobinVercammen/presentation-react/commit/e8f5260fe510184fee3ee7967f2fa88c8af495ca) <!-- .element target="_blank" style="position: fixed; left: 15px; bottom:15px;" -->
 Note: Contains state , uses other components
 
 
@@ -173,6 +177,7 @@ case 'pokemons':
 state.pokemons.push(action.pokemon);
 return state;
 ```
+[Code](https://github.com/RobinVercammen/presentation-react/commit/8764777bf8e0bd56304517d034201129e3333ffb) <!-- .element target="_blank" style="position: fixed; left: 15px; bottom:15px;" -->
 Note: manage application state
 
 
